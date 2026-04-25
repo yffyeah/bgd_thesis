@@ -334,10 +334,10 @@
         {\zihao{-2}\heiti 诚信承诺}\par
     \end{center}
     \vspace{1cm}
-    {\zihao{3}\songti
+    {\zihao{-2}\songti
     % \setstretch{1.5}
     \quad\quad 本人 \underline{\makebox[4em]{\includegraphics[width=4em]{signature.png}}} 声明，本论文及其研究工作是由本人在导师指导下独立完成，论文所利用的一切资料均符合论文著作要求，且在参考文献中列出。\par
-    \vspace{3cm}
+    \vspace{4cm}
     \begin{flushright}
     签名：\underline{\makebox[3em]{\includegraphics[width=3em]{signature.png}}} \hspace{0.5em} 日期：\underline{\makebox[2.5cm]{\@gengdandate}} \par
     \end{flushright}
@@ -366,7 +366,7 @@
 }
 
 \newcommand{\researchdirection}[1]{%
-    \vspace{0.5\baselineskip}
+    \par\vspace{0.5\baselineskip}
     \noindent{\heiti\zihao{-4}研究方向：}{\zihao{-4}\songti #1}%
     \par
 }
