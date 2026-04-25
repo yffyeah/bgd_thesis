@@ -103,13 +103,13 @@
 % ============================================================
 % 全局正文 1.5 倍行距（setspace 的 \onehalfspacing 已针对 LaTeX 优化，
 % 对 12pt 正好的相当于 Word 的 1.5 倍行距）
-% \onehalfspacing
+\onehalfspacing
 
 % 首行缩进 2 个中文字符
 \setlength{\parindent}{2\ccwd}
 
-% 段落段前段后 0.5 行（约 9pt）
-% \setlength{\parskip}{0pt plus 2pt minus 1pt}
+% 段落段前段后 0.5 倍行距
+\setlength{\parskip}{0.5\baselineskip}
 
 % ============================================================
 % 6. 章节标题格式（ctexset）
@@ -126,7 +126,7 @@
         numberformat  = {},
         titleformat   = {},
         aftername     = \quad,
-        beforeskip    = 0pt,%0.5\baselineskip,
+        beforeskip    = 0.5\baselineskip,
         afterskip     = 0.5\baselineskip,
         name          = {第,章},
         number        = \arabic{section}
@@ -178,7 +178,10 @@
     \clearpage
     \section*{\contentsname}
     \vspace{0.5\baselineskip}
-    \@starttoc{toc}
+    {%
+        \setstretch{0.5}%
+        \@starttoc{toc}
+    }%
 }
 
 % 一级目录：黑体小四号
@@ -358,7 +361,7 @@
     \addcontentsline{toc}{section}{摘\quad~要}
     \pagenumbering{Roman}
     \vspace{0.5\baselineskip}
-    % \setstretch{1.5}
+    \setstretch{1.5}
     \setlength{\parindent}{2\ccwd}
 }{%
     \vspace{0.5\baselineskip}
