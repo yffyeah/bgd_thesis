@@ -42,7 +42,6 @@
    注：
    \begin{enumerate}
    \item 摘要是论文内容的简要陈述，主要说明本论文主要阐述的内容，应包括本论文的基本研究内容、研究方法、创造性成果及其理论与实际意义。摘要中不宜使用公式、图表，不标注引用文献编号。避免将摘要写成目录式的内容介绍，中文摘要字数以300-500字为宜。
-   \item “研究方向”、“关键词”三个字为黑体、小四，顶格书写；具体关键词、研究方向为宋体、小四。
    \end{enumerate}
 }
 \end{cabstract}
@@ -51,16 +50,11 @@
 % 英文摘要（罗马数字页码继续）
 % --------------------------------------------------
 \begin{eabstract}
-This paper designs and implements a LaTeX-based automatic typesetting system for undergraduate graduation thesis of Beijing Gengdan College. The system strictly follows the format requirements of the school's graduation thesis template, providing fine-grained configurations for page settings, fonts, heading styles, figures, tables, equations, and references, forming a ready-to-use document class.
+\input{contents/abstract_en.tex}
+\demo{（英文摘要内容应与中文摘要内容相对应）}
 
-The research first analyzes the typesetting specifications of the school's Word template, including font sizes and line spacing of headings at all levels, paragraph indentation and spacing of body text, numbering rules for figures and tables, and citation formats. On this basis, the ctex package is used for Chinese font configuration, the titlesec and titletoc packages are used for customizing heading and table of contents formats, and the gbt7714 package is used for national standard reference formatting. Finally, all configurations are integrated into a document class file (.cls), allowing users to focus solely on content writing while automatically generating compliant theses.
-
-Experimental results show that this template can accurately reproduce the typesetting effect of the school template, with good stability and portability, significantly improving the efficiency and standardization of thesis typesetting.
-\demo{（英文摘要内容应与中文摘要内容相对应}
-
-\researcharea{Computer Application; Software Engineering\demo{（与中文研究方向内容相对应，顶格书写，英文分号隔开）}}
-\keywordsen{LaTeX; graduation thesis; document template; automatic typesetting}\demo{（与中文关键词内容相对应，应顶格书写，用英文分号隔开，最后一个关键词后不打标点符号，3-7个；除首字母必须要大写的实词外，每个关键词首字母均小写）}
-
+\input{contents/researcharea.tex}
+\input{contents/keywordsen.tex}
 \end{eabstract}
 
 % --------------------------------------------------
