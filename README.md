@@ -194,7 +194,54 @@ latexmk -xelatex main.tex
 
 系统会自动生成表格编号，如 "表1-1"。
 
-## 10. 常见问题
+## 10. 列表环境
+
+LaTeX 提供了两种主要的列表环境：无序列表（itemize）和有序列表（enumerate）。
+
+### 10.1 无序列表（itemize）
+
+用于不需要编号的列表：
+
+```latex
+\begin{itemize}
+    \item 第一个项目
+    \item 第二个项目
+    \item 第三个项目
+\end{itemize}
+```
+
+### 10.2 有序列表（enumerate）
+
+用于需要编号的列表：
+
+```latex
+\begin{enumerate}
+    \item 第一步
+    \item 第二步
+    \item 第三步
+\end{enumerate}
+```
+
+### 10.3 嵌套列表
+
+可以在列表中嵌套另一个列表：
+
+```latex
+\begin{enumerate}
+    \item 主要项目 1
+    \begin{itemize}
+        \item 子项目 A
+        \item 子项目 B
+    \end{itemize}
+    \item 主要项目 2
+    \begin{enumerate}
+        \item 子步骤 1
+        \item 子步骤 2
+    \end{enumerate}
+\end{enumerate}
+```
+
+## 11. 常见问题
 
 **编译失败？**
 > 确保使用 XeLaTeX 编译，而不是 pdflatex。

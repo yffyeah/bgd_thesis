@@ -32,29 +32,32 @@
 为了使用本模板，需要在计算机上安装 LaTeX 发行版。以下是不同操作系统的安装方法：
 
 \subsubsection{Windows 系统}
-
-1. **下载并安装 TeX Live**
-   - 访问 \url{https://tug.org/texlive/}
-   - 下载 `install-tl-windows.exe` 安装程序
-   - 运行安装程序，选择完整安装（约 6GB 空间）
-   - 安装完成后，重启电脑以更新环境变量
-
-2. **验证安装**
-   - 打开命令提示符（CMD）
-   - 输入 `xelatex --version` 查看是否安装成功
+\begin{enumerate}
+\item 下载并安装 TeX Live
+\begin{itemize}
+   \item 访问 \url{https://tug.org/texlive/}
+   \item 下载 `install-tl-windows.exe` 安装程序
+   \item 运行安装程序，选择完整安装（约 6GB 空间）
+   \item 安装完成后，重启电脑以更新环境变量
+\end{itemize}
+\item 验证TeX安装
+   \begin{itemize}
+      \item 打开命令提示符（CMD）
+      \item 输入 `xelatex --version` 查看是否安装成功
+   \end{itemize}
+\end{enumerate}
 
 \subsubsection{Mac 系统}
-
-1. **下载并安装 MacTeX**
-   - 访问 \url{https://tug.org/mactex/}
-   - 下载最新版本的 MacTeX 安装包（约 4GB）
-   - 运行安装程序，按照提示完成安装
-
-2. **验证安装**
-   - 打开终端（Terminal）
-   - 输入 `xelatex --version` 查看是否安装成功
-
-
+\item 下载并安装 MacTeX
+\begin{itemize}
+   \item 访问 \url{https://tug.org/mactex/}
+   \item 下载最新版本的 MacTeX 安装包（约 4GB）
+\end{itemize}
+\item 验证安装
+\begin{itemize}
+   \item 打开终端（Terminal）
+   \item 输入 `xelatex --version` 查看是否安装成功
+\end{itemize}
 \subsection{公式与图表排版}
 
 \LaTeX{} 的公式排版能力是其核心优势之一。行内公式如 $E=mc^2$ 可直接嵌入正文，独立编号公式则如式~(\ref{eq:quadratic}) 所示。
