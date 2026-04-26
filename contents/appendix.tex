@@ -1,7 +1,232 @@
+\section{LaTeX 简单语法讲解}
+
+本附录提供了 LaTeX 中常用的基本语法，帮助初学者快速上手。
+
+\subsection{基本结构}
+
+一个最小的 LaTeX 文档结构如下：
+
 \begin{verbatim}
-% 以下为附录中源代码示例
 \documentclass{article}
 \begin{document}
 Hello, World!
 \end{document}
 \end{verbatim}
+
+\subsection{标题和章节}
+
+代码示例：
+
+\begin{verbatim}
+\section{一级标题}
+\subsection{二级标题}
+\subsubsection{三级标题}
+\paragraph{四级标题} 正文内容
+\end{verbatim}
+
+效果展示：
+
+\section*{效果示例：一级标题}
+\subsection*{效果示例：二级标题}
+\subsubsection*{效果示例：三级标题}
+\paragraph{效果示例：四级标题} 正文内容
+
+\subsection{文本格式}
+
+代码示例：
+
+\begin{verbatim}
+\textbf{粗体} \textit{斜体} \underline{下划线}
+\textbf{\textit{粗斜体}}
+\end{verbatim}
+
+效果展示：
+
+\textbf{粗体} \textit{斜体} \underline{下划线}
+\textbf{\textit{粗斜体}}
+
+\subsection{列表环境}
+
+\subsubsection{无序列表}
+
+代码示例：
+
+\begin{verbatim}
+\begin{itemize}
+    \item 第一个项目
+    \item 第二个项目
+    \item 第三个项目
+\end{itemize}
+\end{verbatim}
+
+效果展示：
+
+\begin{itemize}
+    \item 第一个项目
+    \item 第二个项目
+    \item 第三个项目
+\end{itemize}
+
+\subsubsection{有序列表}
+
+代码示例：
+
+\begin{verbatim}
+\begin{enumerate}
+    \item 第一步
+    \item 第二步
+    \item 第三步
+\end{enumerate}
+\end{verbatim}
+
+效果展示：
+
+\begin{enumerate}
+    \item 第一步
+    \item 第二步
+    \item 第三步
+\end{enumerate}
+
+\subsection{图片插入}
+
+代码示例：
+
+\begin{verbatim}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/latex.jpg}
+    \caption{图片标题}
+    \label{fig:example}
+\end{figure}
+\end{verbatim}
+
+效果展示：
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/latex.jpg}
+    \caption{示例图片}
+    \label{fig:demo}
+\end{figure}
+
+\subsection{表格}
+
+代码示例：
+
+\begin{verbatim}
+\begin{table}[htbp]
+    \caption{表格标题}
+    \centering
+    \zihao{-5}\songti
+    \begin{tabular}{ccc}
+        \toprule
+        列1 & 列2 & 列3 \\
+        \midrule
+        内容1 & 内容2 & 内容3 \\
+        内容4 & 内容5 & 内容6 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:example}
+\end{table}
+\end{verbatim}
+
+效果展示：
+
+\begin{table}[htbp]
+    \caption{示例表格}
+    \centering
+    \zihao{-5}\songti
+    \begin{tabular}{ccc}
+        \toprule
+        列1 & 列2 & 列3 \\
+        \midrule
+        内容1 & 内容2 & 内容3 \\
+        内容4 & 内容5 & 内容6 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:demo}
+\end{table}
+
+\subsection{公式}
+
+\subsubsection{行内公式}
+
+代码示例：
+
+\begin{verbatim}
+$E=mc^2$
+\end{verbatim}
+
+效果展示：
+
+$E=mc^2$
+
+\subsubsection{独立公式}
+
+代码示例：
+
+\begin{verbatim}
+\begin{equation}
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+    \label{eq:quadratic}
+\end{equation}
+\end{verbatim}
+
+效果展示：
+
+\begin{equation}
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+    \label{eq:demo}
+\end{equation}
+
+\subsection{参考文献引用}
+
+代码示例：
+
+\begin{verbatim}
+% 在正文中引用
+\cite{key1} % 生成右上角角标
+\citep{key1} % 生成行内数字格式 [1]
+
+% 在文档末尾添加
+\bibliography{refs}
+\end{verbatim}
+
+效果展示：
+
+引用示例：文献\cite{lamport1994latex} 介绍了 LaTeX 的基本用法。
+行内引用：\citep{lamport1994latex}
+
+\subsection{常用符号}
+
+代码示例：
+
+\begin{verbatim}
+% 希腊字母
+$\alpha$ $\beta$ $\gamma$ $\delta$ $\epsilon$
+$\lambda$ $\mu$ $\pi$ $\sigma$ $\omega$
+
+% 数学符号
+$\times$ $\div$ $\pm$ $\mp$ $\leq$ $\geq$ $\neq$
+$\in$ $\notin$ $\subset$ $\subseteq$ $\cup$ $\cap$
+$\forall$ $\exists$ $\nabla$ $\partial$
+\end{verbatim}
+
+效果展示：
+
+% 希腊字母
+$\alpha$ $\beta$ $\gamma$ $\delta$ $\epsilon$
+$\lambda$ $\mu$ $\pi$ $\sigma$ $\omega$
+
+% 数学符号
+$\times$ $\div$ $\pm$ $\mp$ $\leq$ $\geq$ $\neq$
+$\in$ $\notin$ $\subset$ $\subseteq$ $\cup$ $\cap$
+$\forall$ $\exists$ $\nabla$ $\partial$
+
+\subsection{技巧提示}
+\begin{enumerate}
+\item \textbf{编译次数}：LaTeX 需要多次编译才能正确处理引用和目录
+\item \textbf{空格}：LaTeX 会忽略多个连续空格，使用 `~` 表示硬空格
+\item \textbf{注释}：使用 `\%` 开头的行作为注释
+\item \textbf{特殊字符}：一些字符需要转义，如 `\$`、`\%`、`\&`、`\#`
+\end{enumerate}
