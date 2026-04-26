@@ -39,6 +39,9 @@
 \RequirePackage{multirow}        % 表格多行合并
 \RequirePackage{tabularx}        % 可变宽表格
 \RequirePackage{enumitem}        % 列表环境
+% 列表环境设置：段后不需要空行
+\setlist[enumerate]{noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt}
+\setlist[itemize]{noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt}
 \RequirePackage{ulem}            % 下划线
 \RequirePackage[sort&compress]{gbt7714}  % GB/T 7714-2015 参考文献
 \RequirePackage{hyperref}        % 超链接（最后加载）
@@ -339,10 +342,10 @@
     \vspace{1cm}
     {\zihao{-2}\songti
     % \setstretch{1.5}
-    \quad\quad 本人 \underline{\makebox[4em]{\includegraphics[width=4em]{signature.png}}} 声明，本论文及其研究工作是由本人在导师指导下独立完成，论文所利用的一切资料均符合论文著作要求，且在参考文献中列出。\par
+    \quad\quad 本人 \underline{\makebox[4em]{\includegraphics[width=4em]{figures/signature.png}}} 声明，本论文及其研究工作是由本人在导师指导下独立完成，论文所利用的一切资料均符合论文著作要求，且在参考文献中列出。\par
     \vspace{4cm}
     \begin{flushright}
-    签名：\underline{\makebox[3em]{\includegraphics[width=3em]{signature.png}}} \hspace{0.5em} 日期：\underline{\makebox[2.5cm]{\@gengdandate}} \par
+    签名：\underline{\makebox[3em]{\includegraphics[width=3em]{figures/signature.png}}} \hspace{0.5em} 日期：\underline{\makebox[2.5cm]{\@gengdandate}} \par
     \end{flushright}
     }
     \vfill
@@ -493,9 +496,20 @@
 % ============================================================
 \newif\ifshowdemo
 
+\newsavebox\demobox
+\newenvironment{demoenv}{%
+    \ifshowdemo%
+        \begin{trivlist}\item[\CJKfamily{zhitsong}\textit{\textcolor{red}{\textbf{注：}}}]\relax%
+    \fi%
+}{%
+    \ifshowdemo%
+        \end{trivlist}%
+    \fi%
+}
+
 \newcommand{\demo}[1]{%
     \ifshowdemo%
-        \CJKfamily{zhitsong}\textit{\textcolor{red}{#1}}\CJKfamily{zhitsong}%
+        \par{\color{red}\CJKfamily{zhitsong}\textit{#1}}\par%
     \fi%
 }
 

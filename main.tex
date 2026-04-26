@@ -67,181 +67,16 @@
 % 正文开始（页码切换为阿拉伯数字，从 1 开始）
 % --------------------------------------------------
 \mainmatter
-
-\section{绪论}
 \input{contents/chapter1.tex}
-
-\section{相关技术与理论}
-
-\subsection{\TeX{} 排版系统概述}
-
-\TeX{} 是由 Donald E. Knuth 于 1984 年开发的排版系统，其核心优势在于精确的版面控制与高质量的数学公式排版\cite{knuth1984texbook}。\TeX{} 采用标记语言描述文档结构，通过编译生成最终的版式文件（通常为 PDF）。
-
-\subsection{常用宏包介绍}
-
-表~\ref{tab:packages} 列出了本模板使用的主要宏包及其功能说明。
-
-\subsection{LaTeX 安装指南}
-
-为了使用本模板，需要在计算机上安装 LaTeX 发行版。以下是不同操作系统的安装方法：
-
-\subsubsection{Windows 系统}
-
-1. **下载并安装 TeX Live**
-   - 访问 \url{https://tug.org/texlive/}
-   - 下载 `install-tl-windows.exe` 安装程序
-   - 运行安装程序，选择完整安装（约 6GB 空间）
-   - 安装完成后，重启电脑以更新环境变量
-
-2. **验证安装**
-   - 打开命令提示符（CMD）
-   - 输入 `xelatex --version` 查看是否安装成功
-
-\subsubsection{Mac 系统}
-
-1. **下载并安装 MacTeX**
-   - 访问 \url{https://tug.org/mactex/}
-   - 下载最新版本的 MacTeX 安装包（约 4GB）
-   - 运行安装程序，按照提示完成安装
-
-2. **验证安装**
-   - 打开终端（Terminal）
-   - 输入 `xelatex --version` 查看是否安装成功
-
-\begin{table}[htbp]
-\centering
-\caption{本模板使用的主要宏包}
-\label{tab:packages}
-\zihao{-5}\songti
-\begin{tabular}{lll}
-\toprule
-序号 & 宏包名称 & 主要功能 \\
-\midrule
-1 & ctex & 中文支持、字体配置 \\
-2 & geometry & 页面尺寸与页边距设置 \\
-3 & titlesec / titletoc & 标题与目录格式定制 \\
-4 & setspace & 行距控制 \\
-5 & gbt7714 & 参考文献国标格式 \\
-6 & hyperref & 超链接与 PDF 书签 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{公式与图表排版}
-
-\LaTeX{} 的公式排版能力是其核心优势之一。行内公式如 $E=mc^2$ 可直接嵌入正文，独立编号公式则如式~(\ref{eq:quadratic}) 所示。
-
-\begin{equation}
-    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-    \label{eq:quadratic}
-\end{equation}
-
-图~\ref{fig:latex-process} 展示了 \LaTeX{} 文档的基本编译流程。
-
-\begin{figure}[htbp]
-    \centering
-    \fbox{\parbox{0.6\textwidth}{\centering\vspace{2em}此处插入图片\vspace{2em}}}
-    \caption{LaTeX 文档编译流程示意图}
-    \label{fig:latex-process}
-\end{figure}
-
-\section{模板系统的设计与实现}
-
-\subsection{整体架构}
-
-本模板采用模块化设计思路，将页面设置、字体配置、标题格式、图表公式、参考文献等功能分别封装，最终整合为一个独立的文档类文件。用户只需在导言区调用 \verb|\documentclass{gengdan-thesis}| 即可继承所有格式配置。
-
-\subsection{章节标题配置}
-
-模板利用 ctex 宏包的 \verb|\ctexset| 命令，对各级标题进行了精确控制。一级标题采用"第 X 章"的编号格式，二级、三级标题分别使用小三号和小四号黑体，四级标题则采用 run-in 样式以节省空间。
-
-\subsection{参考文献处理}
-
-参考文献采用 GB/T 7714-2015 顺序编码制\cite{gbt77142015}。正文中的引用标注使用上角标形式，如"二次铣削~\cite{knuth1984texbook}"。当需要行内非上标引用时，可使用 \verb|\citep{key}| 命令，效果如"由文献~\citep{lamport1994latex} 可知"。
-
-\section{实验验证}
-
-\subsection{测试环境}
-
-实验在 Windows 11 与 Ubuntu 22.04 两种操作系统下进行，\LaTeX{} 发行版分别为 TeX Live 2024 和 MiKTeX 23.10，编译引擎统一使用 XeLaTeX。
-
-\subsection{排版效果对比}
-
-通过将模板生成的 PDF 与学校 Word 模板的打印稿进行逐页比对，结果显示二者在字体字号、行距段距、页边距、标题编号、图表格式等方面均保持高度一致。特别是在参考文献与目录的自动生成方面，模板显著优于手动排版方式。
-
-\subsection{性能分析}
-
-对于一篇约 30 000 字的毕业论文，模板在普通笔记本电脑上的编译时间约为 3 至 5 秒，完全满足日常撰写的实时预览需求。
-
-\section{参考文献格式说明}
-参考文献内容建议：
-\begin{enumerate}
-   \item 人文、经管类：中文至少24篇，外文至少6篇； 
-   \item 工理科类：中文至少20篇，外文至少4篇； 
-   \item 设计类：中文至少10篇，外文至少2篇。 
-   \end{enumerate}
- 参考文献中近五年的文献数一般应不少于总数的1/3，并应有近两年的参考文献。本专业教科书不能作为参考文献。 
- 西文文献中第一个词和每个实词的第一个字母大写，余者小写；俄文文献名第一个词和专有名词的第一个字母大写，余者小写；日文文献中的汉字须用日文汉字，不得用中文汉字、简化汉字代替。文献中的外文字母一律用正体。 
- 作者为多人时，不同作者姓名间用逗号加一空格相隔。外文姓名按国际惯例，将作者名的缩写置前，作者姓置后。 
- 学术刊物文献无卷号的可略去此项，直接写"年，(期)"。 
- 列出作者直接阅读过或在正文中被引用过的文献资料，参考文献要另起一页。参考文献在文中要有引用标注，引用标注顺序与参考文献先后顺序相同。正文中引用文献的标示应置于所引内容最后一个字的右上角，所引文献编号用阿拉伯数字置于方括号"[ ]"中，用小四号字体的上角标，如"二次铣削[1]"。当提及的参考文献为文中直接说明时，则用小四号字与正文排齐，如"由文献[8,10\~14]可知"。不得将引用文献标示置于论文摘要和各级标题处。 
- 参考文献序号顶格书写，其后空一格写作者名。若同一文献中有多处被引用，则要写出相应引用页码，各起止页码间空一格，没有引用则不写引用起止页。排列按引用顺序，不按页码顺序。 
- 文献类型和标志代码 
- \begin{table}[htbp]
- \centering
- \caption{文献类型和标志代码}
- \zihao{-5}\songti
- \begin{tabular}{ll}
- \toprule
- 文献类型 & 标志代码 \\
- \midrule
- 普通图书 & M \\
- 会议录 & C \\
- 汇编 & G \\
- 报纸 & N \\
- 期刊 & J \\
- 学位论文 & D \\
- 报告 & R \\
- 标准 & S \\
- 专利 & P \\
- 数据库 & DB \\
- 计算机程序 & CP \\
- 电子公告 & EB \\
- \bottomrule
- \end{tabular}
- \end{table}
- 
- 电子文献载体和标志代码 
- \begin{table}[htbp]
- \centering
- \caption{电子文献载体和标志代码}
- \zihao{-5}\songti
- \begin{tabular}{ll}
- \toprule
- 载体类型 & 标志代码 \\
- \midrule
- 网络 & OL \\
- 磁带 & MT \\
- 磁盘 & MK \\
- 光盘 & CD \\
- \bottomrule
- \end{tabular}
- \end{table}
+\input{contents/chapter2.tex}
+\input{contents/chapter3.tex}
+\input{contents/chapter4.tex}
 
 % --------------------------------------------------
 % 结论（无编号一级标题）
 % --------------------------------------------------
 \makeconclusion
-
-本文针对北京工业大学耿丹学院本科生毕业设计论文的排版需求，开发了一套基于 \LaTeX{} 的自动化模板系统。主要工作与结论如下：
-
-（1）系统梳理了学校毕业设计 Word 模板的全部格式规范，建立了完整的排版参数清单，涵盖页面设置、字体字号、各级标题、正文段落、图表公式、参考文献等各个方面。
-
-（2）基于 ctex、titlesec、gbt7714 等成熟宏包，设计并实现了 \verb|gengdan-thesis.cls| 文档类文件，将复杂的格式配置封装为开箱即用的模板，大幅降低了学生的排版门槛。
-
-（3）通过多平台、多场景的实验测试，验证了模板在排版精度、编译效率、可移植性等方面的优良性能，证明其完全满足学校毕业设计论文的提交要求。
-
-未来可在以下方面进一步改进：增加对插图批量处理的辅助脚本；开发基于 VS Code 或 TeXstudio 的一键编译配置；针对不同专业（如艺术、经管类）的特殊格式需求提供扩展分支。
+\input{contents/conclusion.tex}
 
 % --------------------------------------------------
 % 参考文献（标题自动加入目录）
@@ -255,24 +90,12 @@
 % 附录（无编号一级标题，可选）
 % --------------------------------------------------
 \makeappendix
-
-\begin{verbatim}
-% 以下为附录中源代码示例
-\documentclass{article}
-\begin{document}
-Hello, World!
-\end{document}
-\end{verbatim}
+\input{contents/appendix.tex}
 
 % --------------------------------------------------
 % 致谢（无编号一级标题）
 % --------------------------------------------------
 \makeacknowledgement
-
-衷心感谢我的导师李四教授在选题、研究与论文撰写过程中给予的悉心指导。李老师严谨的治学态度与渊博的学识使我受益匪浅。
-
-感谢信息工程学院的各位老师在课程学习与项目实践中提供的帮助；感谢室友与同学们在生活上给予的关心与鼓励。
-
-最后，感谢北京工业大学耿丹学院提供的良好学习环境与平台。
+\input{contents/acknowledgement.tex}
 
 \end{document}
