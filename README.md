@@ -48,8 +48,10 @@ XeTeX 3.141592653-2.6-0.999996 (TeX Live 2024)
 | --- | --- |
 | `contents/chapter1.tex` | 第1章 绪论 |
 | `contents/chapter2.tex` | 第2章 相关技术与理论 |
-| `contents/chapter3.tex` | 第3章 系统设计与实现 |
-| `contents/chapter4.tex` | 第4章 实验与分析 |
+| `contents/chapter3.tex` | 第3章 模板系统的设计与实现 |
+| `contents/chapter4.tex` | 第4章 实验验证 |
+| `contents/chapter5.tex` | 第5章 参考文献格式说明 |
+| `contents/chapter6.tex` | 第6章 AI 赋能 LaTeX 论文写作 |
 | `contents/conclusion.tex` | 结论 |
 
 用文本编辑器打开对应的文件，修改其中的内容即可。
