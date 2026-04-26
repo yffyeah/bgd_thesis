@@ -44,6 +44,9 @@
 \setlist[itemize]{noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt}
 \RequirePackage{ulem}            % 下划线
 \RequirePackage[sort&compress]{gbt7714}  % GB/T 7714-2015 参考文献
+% 保持 cite 命令生成右上角的角标，让 citep 命令不生成右上角的角标
+\let\oldcitep\citep
+\renewcommand{\citep}[1]{\begingroup\citestyle{numbers}\oldcitep{#1}\endgroup}
 \RequirePackage{hyperref}        % 超链接（最后加载）
 
 % ============================================================
@@ -499,10 +502,12 @@
 \newsavebox\demobox
 \newenvironment{demoenv}{%
     \ifshowdemo%
-        \begin{trivlist}\item[\CJKfamily{zhitsong}\textit{\textcolor{red}{\textbf{注：}}}]\relax%
+        \begin{trivlist}\item[\CJKfamily{zhitsong}\textit{\textcolor{red}{\textbf{注：}}}]%
+        \color{red}\CJKfamily{zhitsong}\ignorespaces%
     \fi%
 }{%
     \ifshowdemo%
+        \par%
         \end{trivlist}%
     \fi%
 }
