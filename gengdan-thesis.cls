@@ -127,7 +127,7 @@
 \ctexset{
     % 一级标题：黑体小二号居中，段前段后0.5行，多倍行距2.41
     section = {
-        format        = \clearpage\vspace*{-45pt}\centering\heiti\zihao{-2}\linespread{2.41}\selectfont,
+        format        = \vspace*{-45pt}\centering\heiti\zihao{-2}\linespread{2.41}\selectfont,
         nameformat    = {},
         numberformat  = {},
         titleformat   = {},
@@ -172,6 +172,20 @@
     %     number        =  \arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}.\arabic{subparagraph},
     % },
 }
+
+% ============================================================
+% 修正目录页码：\section 前强制换页，且不影响 \section*
+% ============================================================
+% 将 \clearpage 从 section/format 中移出，确保 \addcontentsline 在断页之后执行，
+% 避免目录中的页码比实际页码少 1。
+\let\gengdan@oldsection\section
+\renewcommand{\section}{%
+    \@ifstar
+        \gengdan@oldsection@s
+        \gengdan@oldsection@ns
+}
+\newcommand{\gengdan@oldsection@s}{\gengdan@oldsection*}
+\newcommand{\gengdan@oldsection@ns}{\clearpage\gengdan@oldsection}
 
 % ============================================================
 % 7. 目录格式（titletoc）

@@ -13,22 +13,23 @@
 
 作者为多人时，不同作者姓名间用逗号加一空格相隔。外文姓名按国际惯例，将作者名的缩写置前，作者姓置后。
 
-学术刊物文献无卷号的可略去此项，直接写"年，(期)"。
+学术刊物文献无卷号的可略去此项，直接写``年，(期)''。
 
 列出作者直接阅读过或在正文中被引用过的文献资料，参考文献要另起一页。
 
 参考文献在文中要有引用标注，引用标注顺序与参考文献先后顺序相同(这个由\LaTeX 自动处理)。
 
-当提及的参考文献为文中直接说明时，则用小四号字与正文排齐，如"由文献[8,10\~14]可知"。
+当提及的参考文献为文中直接说明时，则用小四号字与正文排齐，如``由文献\citep{knuth1984texbook,lamport1994latex,mittelbach2004latex,gbt77142015,wang2007latex} 可知''。
 
 不得将引用文献标示置于论文摘要和各级标题处。
 
 参考文献序号顶格书写，其后空一格写作者名。若同一文献中有多处被引用，则要写出相应引用页码，各起止页码间空一格，没有引用则不写引用起止页。排列按引用顺序，不按页码顺序。
 \end{demoenv}
- 文献类型和标志代码 
+
+ 文献类型和标志代码参见表\ref{tab:littype}.
  \begin{table}[htbp]
  \centering
- \caption{文献类型和标志代码}
+ \caption{文献类型和标志代码 \label{tab:littype}}
  \zihao{-5}\songti
  \begin{tabular}{ll}
  \toprule
@@ -50,10 +51,10 @@
  \end{tabular}
  \end{table}
  
- 电子文献载体和标志代码 
+ 电子文献载体和标志代码参见表\ref{tab:litcarrier}.
  \begin{table}[htbp]
  \centering
- \caption{电子文献载体和标志代码}
+ \caption{电子文献载体和标志代码 \label{tab:litcarrier}}
  \zihao{-5}\songti
  \begin{tabular}{ll}
  \toprule
@@ -66,3 +67,5 @@
  \bottomrule
  \end{tabular}
  \end{table}
+
+ （你看到这两个表的排版感觉跟tex文件中的顺序不一样，这是正常现象，因为\LaTeX 会自动调整表格的顺序以适应页面布局。不要尝试手动调整表格的顺序，否则会导致排版错误。）
