@@ -2,6 +2,7 @@
 % 北京工业大学耿丹学院本科生毕业设计（论文）LaTeX 模板
 % 文档类：gengdan-thesis.cls
 % 版本：v1.0 (2026/04/24)
+% 作者：Fangfang Yuan
 % 编译方式：XeLaTeX -> BibTeX -> XeLaTeX*2
 % ============================================================
 
@@ -450,9 +451,31 @@
 
 \newcommand{\makeappendix}{%
     \clearpage
-    \section*{附\ \ 录}%
-    \addcontentsline{toc}{section}{附\ \ 录}%
+    % 重置 section 计数器为 0，这样第一个附录 section 编号为 \Alph{1} = A
+    \setcounter{section}{0}%
+    % 设置目录深度为 1，只显示一级标题
+    \setcounter{tocdepth}{1}%
+    % 设置计数器显示格式（不含"附录"前缀，避免与 name 重复）
+    \renewcommand{\thesection}{\Alph{section}}%
+    \renewcommand{\thesubsection}{\Alph{section}.\arabic{subsection}}%
+    \renewcommand{\thesubsubsection}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}}%
+    % 配置 ctex 标题格式：标题自动显示为"附录A"
+    \ctexset{
+        section/name={附录,},
+        section/number=\Alph{section},
+        subsection/number=\Alph{section}.\arabic{subsection},
+        subsubsection/number=\Alph{section}.\arabic{subsection}.\arabic{subsubsection},
+    }%
+    % 同步更新图表公式的编号格式为 A-1, A-2...
+    \renewcommand{\thefigure}{\Alph{section}-\arabic{figure}}%
+    \renewcommand{\thetable}{\Alph{section}-\arabic{table}}%
+    \renewcommand{\theequation}{\Alph{section}-\arabic{equation}}%
+    % 重置浮动体计数器，确保编号从 1 开始
+    \setcounter{figure}{0}%
+    \setcounter{table}{0}%
+    \setcounter{equation}{0}%
 }
+
 
 \newcommand{\makeacknowledgement}{%
     \clearpage
