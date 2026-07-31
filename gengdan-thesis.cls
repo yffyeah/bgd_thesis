@@ -40,9 +40,16 @@
 \RequirePackage{multirow}        % 表格多行合并
 \RequirePackage{tabularx}        % 可变宽表格
 \RequirePackage{enumitem}        % 列表环境
+\RequirePackage{etoolbox}        % 提供环境钩子
 % 列表环境设置：段后不需要空行
 \setlist[enumerate]{noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt}
 \setlist[itemize]{noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt}
+% 设置表格环境使用小五号字
+\AtBeginEnvironment{table}{\zihao{-5}\songti}
+\AtBeginEnvironment{longtable}{\zihao{-5}\songti}
+\AtBeginEnvironment{tabular}{\zihao{-5}\songti}
+\AtBeginEnvironment{tabular*}{\zihao{-5}\songti}
+\AtBeginEnvironment{tabularx}{\zihao{-5}\songti}
 \RequirePackage{ulem}            % 下划线
 \RequirePackage[sort&compress]{gbt7714}  % GB/T 7714-2015 参考文献
 % 保持 cite 命令生成右上角的角标，让 citep 命令不生成右上角的角标
@@ -243,7 +250,7 @@
     \clearpage
     \pagenumbering{arabic}
     \pagestyle{fancy}
-    \fancyhead[C]{\zihao{5}\songti\gengdantitle}
+    \fancyhead[C]{\zihao{5}\songti 北京工业大学耿丹学院2026届毕业设计（论文）}
     \thispagestyle{fancy}
 }
 
