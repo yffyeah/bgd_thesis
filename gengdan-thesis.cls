@@ -87,12 +87,12 @@
 % 字体配置：优先使用方正免费字体，Windows 系统使用微软雅黑作为备选
 \ifcsname ifxetex\endcsname
     \ifxetex
-        % 检查方正书宋字体是否存在
-        \IfFontExistsTF{方正书宋-简体}{% 
-            % 从本地文件夹加载方正免费字体
-            \setCJKmainfont[Path=./方正免费字体/,BoldFont=方正黑体-简体]{方正书宋-简体}%
-            \setCJKsansfont[Path=./方正免费字体/,BoldFont=方正黑体-简体]{方正黑体-简体}%
-            \setCJKmonofont[Path=./方正免费字体/,BoldFont=方正黑体-简体]{方正仿宋-简体}%
+        % 检查当前文件夹下的方正免费字体文件是否存在（跨平台兼容）
+        \IfFileExists{方正免费字体/方正书宋-简体.ttf}{% 
+            % 从本地文件夹加载方正免费字体，字体名不带扩展名由 fontspec 自动查找
+            \setCJKmainfont[Path=方正免费字体/,BoldFont=方正黑体-简体]{方正书宋-简体}%
+            \setCJKsansfont[Path=方正免费字体/,BoldFont=方正黑体-简体]{方正黑体-简体}%
+            \setCJKmonofont[Path=方正免费字体/,BoldFont=方正黑体-简体]{方正仿宋-简体}%
         }{% 
             % Windows 系统字体配置，使用 微软雅黑 以接近 Word 显示效果
             \IfFontExistsTF{Microsoft YaHei}{% 
@@ -104,8 +104,10 @@
     \fi
 \fi
 
-% 为中文字体设置伪斜体
-\setCJKfamilyfont{zhitsong}[Path=./方正免费字体/,AutoFakeSlant=0.3]{方正书宋-简体}%
+% 为中文字体设置伪斜体（仅本地方正字体存在时才定义）
+\IfFileExists{方正免费字体/方正书宋-简体.ttf}{%
+    \setCJKfamilyfont{zhitsong}[Path=方正免费字体/,AutoFakeSlant=0.3]{方正书宋-简体}%
+}{}
 
 % 确保英文摘要等环境中的字体正确
 \newcommand{\gengdan@setenglishfont}{%
