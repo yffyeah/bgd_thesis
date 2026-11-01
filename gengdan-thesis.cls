@@ -340,7 +340,7 @@
         \vspace{0.6cm}
         {\zihao{-0}\heiti 毕业设计（论文）}\par
         \vspace{2.5cm}
-        {\zihao{3}\songti \@gengdantitle}\par
+        {\zihao{3}\songti\bfseries \@gengdantitle}\par
         \vspace{3cm}
         \renewcommand{\arraystretch}{1.8}
         \begin{tabular}{r @{\hspace{1em}} l}
